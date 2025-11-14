@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lease Connect | Lease Records</title>
+
+  <style>
+    /* ---------- Base Styles ---------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      display: flex;
+      height: 100vh;
+      background-color: #f9fafc;
+      color: #333;
+      overflow: hidden;
+    }
+
+    /* ---------- Sidebar ---------- */
+    .sidebar {
+      width: 250px;
+      background: linear-gradient(180deg, #7fc8f8, #a0e7e5);
+      color: #003049;
+      display: flex;
+      flex-direction: column;
+      padding: 25px 20px;
+      border-top-right-radius: 25px;
+      border-bottom-right-radius: 25px;
+      box-shadow: 3px 0 15px rgba(0,0,0,0.1);
+    }
+
+    .sidebar h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-weight: 700;
+      color: #003049;
+      letter-spacing: 1px;
+    }
+
+    .sidebar a {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: #003049;
+      font-weight: 500;
+      padding: 12px 15px;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+    }
+
+    .sidebar a:hover,
+    .sidebar a.active {
+      background: rgba(255, 255, 255, 0.7);
+      color: #000;
+      transform: translateX(5px);
+    }
+
+    /* ---------- Main Area ---------- */
+    .main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+    }
+
+    /* ---------- Topbar ---------- */
+    .topbar {
+      height: 65px;
+      background: #ffffff;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 25px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .topbar h1 {
+      font-size: 22px;
+      font-weight: 600;
+      color: #003049;
+    }
+
+    .user-info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 500;
+      color: #003049;
+      cursor: pointer;
+    }
+
+    .user-info img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #7fc8f8;
+    }
+
+    /* ---------- Content ---------- */
+    .content {
+      padding: 30px;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .section-header h2 {
+      font-size: 20px;
+      font-weight: 600;
+      color: #003049;
+    }
+
+    .add-btn {
+      background: #7fc8f8;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-size: 14px;
+      color: #003049;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .add-btn:hover {
+      background: #56b8f5;
+      color: #fff;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+      overflow: hidden;
+    }
+
+    th, td {
+      text-align: left;
+      padding: 14px 18px;
+      border-bottom: 1px solid #eee;
+      font-size: 15px;
+    }
+
+    th {
+      background: #7fc8f8;
+      color: #003049;
+      font-weight: 600;
+    }
+
+    tr:hover {
+      background: #f2faff;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      font-size: 14px;
+      background: #fff;
+      color: #555;
+      border-top: 1px solid #eee;
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background-color: #7fc8f8;
+      border-radius: 8px;
+    }
+
+    /* ---------- Modal ---------- */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+      z-index: 100;
+    }
+
+    .modal-content {
+      background: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      width: 420px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    .modal-content h3 {
+      margin-bottom: 15px;
+      color: #003049;
+    }
+
+    .modal-content input, .modal-content select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+
+    .modal-content button {
+      background: #7fc8f8;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 8px;
+      color: #003049;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .close-btn {
+      background: red;
+      color: white;
+      float: right;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <h2>Lease Connect</h2>
+    <a href="dashboard.html">🏠 Dashboard</a>
+    <a href="lease-records.html" class="active">📄 Lease Records</a>
+    <a href="tenants.html">👥 Tenants</a>
+    <a href="properties.html">🏢 Properties</a>
+    <a href="payments.html">💰 Payments</a>
+    <a href="reports.html">📈 Reports</a>
+    <a href="settings.html">⚙️ Settings</a>
+  </aside>
+
+  <!-- Main Content -->
+  <div class="main">
+    <div class="topbar">
+      <h1>Lease Records</h1>
+      <div class="user-info">
+        <span>Ridhima</span>
+        <img src="https://i.pravatar.cc/100?img=5" alt="User Avatar">
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="section-header">
+        <h2>All Lease Agreements</h2>
+        <button class="add-btn" id="addLeaseBtn">+ Add Lease</button>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Lease ID</th>
+            <th>Tenant Name</th>
+            <th>Property</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Rent (₹)</th>
+          </tr>
+        </thead>
+        <tbody id="leaseTable">
+          <tr>
+            <td>#L001</td>
+            <td>Arjun Mehta</td>
+            <td>Sunrise Apartments</td>
+            <td>2025-01-01</td>
+            <td>2025-12-31</td>
+            <td>15,000</td>
+          </tr>
+          <tr>
+            <td>#L002</td>
+            <td>Priya Sharma</td>
+            <td>Blue Valley Homes</td>
+            <td>2025-03-01</td>
+            <td>2026-02-28</td>
+            <td>18,000</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <footer>
+      &copy; 2025 Lease Connect | All Rights Reserved
+    </footer>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal" id="leaseModal">
+    <div class="modal-content">
+      <button class="close-btn" id="closeModal">X</button>
+      <h3>Add New Lease</h3>
+      <input type="text" id="tenantName" placeholder="Tenant Name" />
+      <input type="text" id="propertyName" placeholder="Property Name" />
+      <input type="date" id="startDate" />
+      <input type="date" id="endDate" />
+      <input type="number" id="rent" placeholder="Monthly Rent (₹)" />
+      <button id="saveLease">Save Lease</button>
+    </div>
+  </div>
+
+  <script>
+    // Sidebar active effect
+    const sidebarLinks = document.querySelectorAll(".sidebar a");
+    sidebarLinks.forEach(link => {
+      link.addEventListener("click", () => {
+        sidebarLinks.forEach(l => l.classList.remove("active"));
+        link.classList.add("active");
+      });
+    });
+
+    // Modal
+    const modal = document.getElementById("leaseModal");
+    document.getElementById("addLeaseBtn").onclick = () => modal.style.display = "flex";
+    document.getElementById("closeModal").onclick = () => modal.style.display = "none";
+    window.onclick = e => { if (e.target === modal) modal.style.display = "none"; };
+
+    // Add Lease Record
+    document.getElementById("saveLease").onclick = () => {
+      const t = tenantName.value.trim();
+      const p = propertyName.value.trim();
+      const s = startDate.value;
+      const e = endDate.value;
+      const r = rent.value.trim();
+
+      if (!t || !p || !s || !e || !r) {
+        alert("⚠️ Please fill all fields!");
+        return;
+      }
+
+      const table = document.getElementById("leaseTable");
+      const id = "#L" + String(100 + table.rows.length);
+      const row = table.insertRow();
+      row.innerHTML = `<td>${id}</td><td>${t}</td><td>${p}</td><td>${s}</td><td>${e}</td><td>${parseInt(r).toLocaleString()}</td>`;
+
+      modal.style.display = "none";
+      document.querySelectorAll(".modal-content input").forEach(i => i.value = "");
+      alert("✅ Lease record added successfully!");
+    };
+  </script>
+</body>
+</html>

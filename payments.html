@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Payments - Lease Connect</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100">
+
+    <!-- Top Navbar -->
+    <nav class="bg-white shadow-md px-6 py-4 flex items-center justify-between">
+        <h1 class="text-2xl font-bold text-blue-600">Lease Connect</h1>
+
+        <div class="flex items-center gap-6">
+            <span class="text-gray-700 font-medium">Landlord</span>
+            <button class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md">
+                Logout
+            </button>
+        </div>
+    </nav>
+
+    <!-- Dashboard Layout -->
+    <div class="flex">
+
+        <!-- Sidebar -->
+        <aside class="w-64 bg-white h-screen shadow-md p-5">
+            <h2 class="text-xl font-semibold mb-4">Menu</h2>
+
+            <ul class="space-y-3">
+                <li><a href="dashboard.html" class="block px-4 py-2 rounded hover:bg-gray-200">Dashboard</a></li>
+                <li><a href="properties.html" class="block px-4 py-2 rounded hover:bg-gray-200">My Properties</a></li>
+                <li><a href="manage-tenants.html" class="block px-4 py-2 rounded hover:bg-gray-200">Manage Tenants</a></li>
+                <li><a href="lease-agreement.html" class="block px-4 py-2 rounded hover:bg-gray-200">Lease Agreements</a></li>
+                <li><a href="#" class="block px-4 py-2 bg-blue-100 rounded hover:bg-blue-200">Payments</a></li>
+                <li><a href="support.html" class="block px-4 py-2 rounded hover:bg-gray-200">Support</a></li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 p-8">
+
+            <!-- Page Title + Button -->
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-semibold">Payments</h2>
+
+                <button class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-md">
+                    + Record Payment
+                </button>
+            </div>
+
+            <!-- Payments Table -->
+            <div class="bg-white shadow-md rounded-lg overflow-hidden">
+
+                <table class="w-full text-left border-collapse">
+                    <thead class="bg-gray-200">
+                        <tr>
+                            <th class="py-3 px-4">Tenant</th>
+                            <th class="py-3 px-4">Property</th>
+                            <th class="py-3 px-4">Amount</th>
+                            <th class="py-3 px-4">Date</th>
+                            <th class="py-3 px-4">Status</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <tr class="border-b">
+                            <td class="py-3 px-4">Amit Sharma</td>
+                            <td class="py-3 px-4">Flat 101, Green Residency</td>
+                            <td class="py-3 px-4">₹15,000</td>
+                            <td class="py-3 px-4">01 Nov 2025</td>
+                            <td class="py-3 px-4">
+                                <span class="bg-green-100 text-green-700 px-3 py-1 rounded-md text-sm font-semibold">
+                                    Paid
+                                </span>
+                            </td>
+                        </tr>
+
+                        <tr class="border-b">
+                            <td class="py-3 px-4">Priya Sharma</td>
+                            <td class="py-3 px-4">Villa 2, Blue Valley Homes</td>
+                            <td class="py-3 px-4">₹18,000</td>
+                            <td class="py-3 px-4">03 Nov 2025</td>
+                            <td class="py-3 px-4">
+                                <span class="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-md text-sm font-semibold">
+                                    Pending
+                                </span>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="py-3 px-4">Rohan Verma</td>
+                            <td class="py-3 px-4">Skyline Villa 3</td>
+                            <td class="py-3 px-4">₹20,000</td>
+                            <td class="py-3 px-4">01 Nov 2025</td>
+                            <td class="py-3 px-4">
+                                <span class="bg-red-100 text-red-700 px-3 py-1 rounded-md text-sm font-semibold">
+                                    Overdue
+                                </span>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+
+            </div>
+
+        </main>
+    </div>
+
+</body>
+</html>

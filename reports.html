@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lease Connect | Reports</title>
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+    body{display:flex;height:100vh;background:#f9fafc;color:#333;}
+    .sidebar{width:250px;background:linear-gradient(180deg,#7fc8f8,#a0e7e5);color:#003049;display:flex;flex-direction:column;padding:25px 20px;border-radius:0 25px 25px 0;box-shadow:3px 0 15px rgba(0,0,0,0.1);}
+    .sidebar h2{text-align:center;margin-bottom:30px;font-weight:700;}
+    .sidebar a{padding:12px 15px;text-decoration:none;color:#003049;border-radius:12px;margin-bottom:5px;}
+    .sidebar a:hover,.sidebar a.active{background:rgba(255,255,255,0.7);color:#000;}
+    .main{flex:1;display:flex;flex-direction:column;overflow:auto;}
+    .topbar{height:65px;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,0.1);display:flex;align-items:center;justify-content:space-between;padding:0 25px;}
+    .content{padding:30px;}
+    .chart{background:#fff;border-radius:15px;box-shadow:0 4px 8px rgba(0,0,0,0.08);padding:20px;margin-bottom:25px;}
+    footer{text-align:center;padding:15px;background:#fff;border-top:1px solid #eee;}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+  <aside class="sidebar">
+    <h2>Lease Connect</h2>
+    <a href="dashboard.html">🏠 Dashboard</a>
+    <a href="lease-records.html">📄 Lease Records</a>
+    <a href="tenants.html">👥 Tenants</a>
+    <a href="properties.html">🏢 Properties</a>
+    <a href="payments.html">💰 Payments</a>
+    <a href="reports.html" class="active">📈 Reports</a>
+    <a href="settings.html">⚙️ Settings</a>
+  </aside>
+
+  <div class="main">
+    <div class="topbar"><h1>Reports & Analytics</h1></div>
+    <div class="content">
+      <div class="chart">
+        <h3>Monthly Rent Collection</h3>
+        <canvas id="rentChart"></canvas>
+      </div>
+      <div class="chart">
+        <h3>Active Tenants by City</h3>
+        <canvas id="tenantChart"></canvas>
+      </div>
+    </div>
+    <footer>&copy; 2025 Lease Connect | All Rights Reserved</footer>
+  </div>
+
+  <script>
+    new Chart(document.getElementById('rentChart'), {
+      type: 'bar',
+      data: {
+        labels: ['Jan','Feb','Mar','Apr','May','Jun'],
+        datasets: [{label: 'Rent Collected (₹)', data: [45000,52000,61000,58000,63000,70000]}]
+      },
+      options:{responsive:true,scales:{y:{beginAtZero:true}}}
+    });
+
+    new Chart(document.getElementById('tenantChart'), {
+      type: 'pie',
+      data: {
+        labels:['Jodhpur','Jaipur','Udaipur','Delhi'],
+        datasets:[{data:[35,25,15,25],backgroundColor:['#7fc8f8','#a0e7e5','#56b8f5','#ffd166']}]
+      }
+    });
+  </script>
+</body>
+</html>

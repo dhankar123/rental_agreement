@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Tenant Dashboard - Lease Connect</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial;
+        background: #f5f7fb;
+    }
+
+    .sidebar {
+        width: 230px;
+        background: linear-gradient(#5db1ff, #92d8ff);
+        height: 100vh;
+        padding: 20px;
+        position: fixed;
+        color: white;
+    }
+
+    .sidebar h2 {
+        margin-bottom: 25px;
+        text-align: center;
+    }
+
+    .menu a {
+        display: block;
+        margin: 12px 0;
+        padding: 10px;
+        text-decoration: none;
+        color: white;
+        border-radius: 8px;
+    }
+
+    .menu a:hover {
+        background: rgba(255, 255, 255, 0.25);
+    }
+
+    .main {
+        margin-left: 250px;
+        padding: 25px;
+    }
+
+    .cards {
+        display: flex;
+        gap: 20px;
+    }
+
+    .card {
+        background: white;
+        width: 230px;
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .logout {
+       background: red;
+       color: white;
+       border-radius: 8px;
+       padding: 10px;
+       display: block;
+       text-align: center;
+       margin-top: 40px;
+       cursor: pointer;
+    }
+
+</style>
+
+</head>
+
+<body onload="checkTenant()">
+
+<div class="sidebar">
+    <h2>Lease Connect</h2>
+
+    <div class="menu">
+        <a href="tenant-dashboard.html">🏠 Dashboard</a>
+        <a href="tenant-my-leases.html">📄 My Lease</a>
+        <a href="tenant-payments.html">💳 Payments</a>
+        <a href="tenant-requests.html">📝 Service Requests</a>
+        <a href="tenant-profile.html">👤 My Profile</a>
+    </div>
+
+    <div class="logout" onclick="logout()">Logout</div>
+</div>
+
+<div class="main">
+    <h1>Tenant Dashboard Overview</h1>
+
+    <div class="cards">
+        <div class="card">
+            <h3>Upcoming Rent</h3>
+            <h2>₹12,000</h2>
+        </div>
+
+        <div class="card">
+            <h3>Lease End Date</h3>
+            <h2>31 Dec 2025</h2>
+        </div>
+
+        <div class="card">
+            <h3>Service Requests</h3>
+            <h2>2 Pending</h2>
+        </div>
+    </div>
+
+</div>
+
+<script src="assets/script.js"></script>
+
+</body>
+</html>

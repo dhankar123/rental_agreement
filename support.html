@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Support - Lease Connect</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100">
+
+    <nav class="bg-white shadow-md px-6 py-4 flex items-center justify-between">
+        <h1 class="text-2xl font-bold text-blue-600">Lease Connect</h1>
+        <div class="flex items-center gap-6">
+            <span class="text-gray-700 font-medium">Landlord</span>
+            <button class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md">Logout</button>
+        </div>
+    </nav>
+
+    <div class="flex">
+
+        <aside class="w-64 bg-white h-screen shadow-md p-5 sticky top-0">
+            <h2 class="text-xl font-semibold mb-4">Menu</h2>
+
+            <ul class="space-y-3">
+                <li><a href="dashboard.html" class="block px-4 py-2 rounded hover:bg-gray-200">Dashboard</a></li>
+                <li><a href="properties.html" class="block px-4 py-2 rounded hover:bg-gray-200">My Properties</a></li>
+                <li><a href="add-new-property.html" class="block px-4 py-2 rounded hover:bg-gray-200">Add New Property</a></li>
+                <li><a href="manage-tenants.html" class="block px-4 py-2 rounded hover:bg-gray-200">Manage Tenants</a></li>
+                <li><a href="lease-agreement.html" class="block px-4 py-2 rounded hover:bg-gray-200">Lease Agreements</a></li>
+                <li><a href="payments.html" class="block px-4 py-2 rounded hover:bg-gray-200">Payments</a></li>
+                <li><a href="support.html" class="block px-4 py-2 bg-blue-100 rounded hover:bg-blue-200">Support</a></li>
+            </ul>
+        </aside>
+
+        <main class="flex-1 p-8">
+
+            <div class="mb-8">
+                <h2 class="text-3xl font-bold text-gray-800">Customer Support</h2>
+                <p class="text-gray-600 mt-1">We're here to help you manage your properties smoothly.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                
+                <div class="lg:col-span-2 bg-white p-6 shadow-md rounded-lg">
+                    <h3 class="text-2xl font-semibold mb-4 border-b pb-2">Submit a Support Request</h3>
+                    
+                    <form id="supportForm" class="space-y-4">
+                        
+                        <div>
+                            <label for="subject" class="block text-gray-700 font-medium mb-1">Subject</label>
+                            <input type="text" id="subject" name="subject" required placeholder="e.g., Issue with rent payment recording"
+                                class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                        </div>
+
+                        <div>
+                            <label for="issue" class="block text-gray-700 font-medium mb-1">Detailed Description of Issue</label>
+                            <textarea id="issue" name="issue" rows="5" required placeholder="Please describe the problem, including property name or tenant name, if applicable."
+                                class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"></textarea>
+                        </div>
+                        
+                        <button type="submit" 
+                            class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg transition duration-150">
+                            Submit Request
+                        </button>
+                    </form>
+                </div>
+
+                <div class="lg:col-span-1 bg-white p-6 shadow-md rounded-lg h-fit">
+                    <h3 class="text-2xl font-semibold mb-4 border-b pb-2">Contact Details</h3>
+                    <div class="space-y-3 text-gray-700">
+                        <p><strong>Email:</strong> support@leaseconnect.com</p>
+                        <p><strong>Phone:</strong> +91 98765 43210</p>
+                        <p><strong>Operating Hours:</strong> Mon - Fri, 9:00 AM to 6:00 PM IST</p>
+                        <div class="pt-2">
+                             <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">Chat with an agent (Live)</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="mt-8 bg-white p-6 shadow-md rounded-lg">
+                <h3 class="text-2xl font-semibold mb-4 border-b pb-2">Frequently Asked Questions (FAQ)</h3>
+                
+                <div class="divide-y divide-gray-200">
+                    <details class="py-3">
+                        <summary class="cursor-pointer text-lg font-medium text-gray-800 hover:text-blue-600">
+                            How do I add a new property?
+                        </summary>
+                        <p class="pt-2 pl-4 text-gray-600">Navigate to the **Add New Property** link in the sidebar menu and fill out the required details including name, location, and rent.</p>
+                    </details>
+                    
+                    <details class="py-3">
+                        <summary class="cursor-pointer text-lg font-medium text-gray-800 hover:text-blue-600">
+                            How can I record a rent payment?
+                        </summary>
+                        <p class="pt-2 pl-4 text-gray-600">Go to the **Payments** page and click the "+ Record Payment" button at the top right. Select the tenant, property, amount, and date.</p>
+                    </details>
+                    
+                    <details class="py-3">
+                        <summary class="cursor-pointer text-lg font-medium text-gray-800 hover:text-blue-600">
+                            What should I do if a tenant's status is incorrect?
+                        </summary>
+                        <p class="pt-2 pl-4 text-gray-600">Go to **Manage Tenants** or click the "View" link on the specific property card. You can edit the tenant details and update their status there.</p>
+                    </details>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <script>
+        document.getElementById('supportForm').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+            
+            const subject = document.getElementById('subject').value;
+            const issue = document.getElementById('issue').value;
+
+            alert(`Support Request Submitted!\nSubject: ${subject}\n\nThank you! We will contact you shortly.`);
+            
+            // Clear the form after submission
+            event.target.reset();
+        });
+    </script>
+
+</body>
+</html>

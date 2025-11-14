@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add New Property - Lease Connect</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100">
+
+    <nav class="bg-white shadow-md px-6 py-4 flex items-center justify-between">
+        <h1 class="text-2xl font-bold text-blue-600">Lease Connect</h1>
+        <div class="flex items-center gap-6">
+            <span class="text-gray-700 font-medium">Landlord</span>
+            <button class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md">
+                Logout
+            </button>
+        </div>
+    </nav>
+
+    <div class="flex">
+
+        <aside class="w-64 bg-white h-screen shadow-md p-5">
+            <h2 class="text-xl font-semibold mb-4">Menu</h2>
+
+            <ul class="space-y-3">
+                <li><a href="properties.html" class="block px-4 py-2 rounded hover:bg-gray-200">My Properties</a></li>
+                <li class="relative">
+                    <a href="add-new-property.html" class="block px-4 py-2 bg-blue-100 rounded hover:bg-blue-200">Add New Property</a>
+                </li>
+                <li><a href="manage-tenants.html" class="block px-4 py-2 rounded hover:bg-gray-200">Manage Tenants</a></li>
+                <li><a href="lease-agreement.html" class="block px-4 py-2 rounded hover:bg-gray-200">Lease Agreements</a></li>
+                <li><a href="payments.html" class="block px-4 py-2 rounded hover:bg-gray-200">Payments</a></li>
+                <li><a href="support.html" class="block px-4 py-2 rounded hover:bg-gray-200">Support</a></li>
+            </ul>
+        </aside>
+
+        <main class="flex-1 p-8">
+
+            <div class="mb-6">
+                <a href="properties.html" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium mb-4">
+                    <span class="text-xl mr-2">&#8592;</span> 
+                </a>
+                
+                <h2 class="text-3xl font-bold text-gray-800">Add New Property</h2>
+            </div>
+            <div class="bg-white p-6 shadow-xl rounded-lg max-w-3xl">
+                <form id="addNewPropertyForm">
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
+                        <div>
+                            <label for="propertyName" class="block text-gray-700 font-medium mb-1">Property Name / Title</label>
+                            <input type="text" id="propertyName" name="propertyName" required placeholder="e.g., Green Residency - Flat 101" 
+                                class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                        </div>
+                        <div>
+                            <label for="propertyType" class="block text-gray-700 font-medium mb-1">Property Type</label>
+                            <select id="propertyType" name="propertyType" required
+                                class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 bg-white">
+                                <option value="">Select Type</option>
+                                <option value="Flat">Flat / Apartment</option>
+                                <option value="Villa">Villa / House</option>
+                                <option value="Commercial">Commercial Space</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
+                        <div>
+                            <label for="location" class="block text-gray-700 font-medium mb-1">Location (City)</label>
+                            <input type="text" id="location" name="location" required placeholder="e.g., Mumbai, Pune, Goa" 
+                                class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                        </div>
+                        <div>
+                            <label for="unitNumber" class="block text-gray-700 font-medium mb-1">Unit / Door Number (Optional)</label>
+                            <input type="text" id="unitNumber" name="unitNumber" placeholder="e.g., A-402, B12" 
+                                class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
+                        <div>
+                            <label for="status" class="block text-gray-700 font-medium mb-1">Current Status</label>
+                            <select id="status" name="status" required
+                                class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 bg-white">
+                                <option value="Vacant">Vacant</option>
+                                <option value="Occupied">Occupied</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="rent" class="block text-gray-700 font-medium mb-1">Monthly Rent (₹)</label>
+                            <input type="number" id="rent" name="rent" required min="1000" placeholder="e.g., 25000" 
+                                class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                        </div>
+                    </div>
+
+                    <div class="mb-6">
+                        <label for="description" class="block text-gray-700 font-medium mb-1">Description / Notes (Optional)</label>
+                        <textarea id="description" name="description" rows="3" placeholder="A brief description of the property features..."
+                            class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"></textarea>
+                    </div>
+
+                    <button type="submit" 
+                        class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg transition duration-150">
+                        Save New Property
+                    </button>
+
+                </form>
+            </div>
+
+        </main>
+    </div>
+
+    <script>
+        document.getElementById('addNewPropertyForm').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+            
+            const formData = new FormData(event.target);
+            const propertyData = Object.fromEntries(formData.entries());
+
+            console.log("Property to be saved:", propertyData);
+            
+            // In a real application, you would use fetch() here to send data to your server API.
+            alert(`Property "${propertyData.propertyName}" in ${propertyData.location} saved! (Data logged to console)`);
+            
+            // Redirect back to the properties list after successful saving (simulated)
+            // window.location.href = 'properties.html'; 
+        });
+    </script>
+
+</body>
+</html>

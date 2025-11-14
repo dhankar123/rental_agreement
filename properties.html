@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Properties - Lease Connect</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100">
+
+    <nav class="bg-white shadow-md px-6 py-4 flex items-center justify-between">
+        <h1 class="text-2xl font-bold text-blue-600">Lease Connect</h1>
+
+        <div class="flex items-center gap-6">
+            <span class="text-gray-700 font-medium">Landlord</span>
+            <button class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md">Logout</button>
+        </div>
+    </nav>
+
+    <div class="flex">
+
+        <aside class="w-64 bg-white h-screen shadow-md p-5">
+            <h2 class="text-xl font-semibold mb-4">Menu</h2>
+
+            <ul class="space-y-3">
+                <li><a href="landlord-dashboard.html" class="block px-4 py-2 rounded hover:bg-gray-200">Dashboard</a></li>
+                <li><a href="properties.html" class="block px-4 py-2 bg-blue-100 rounded hover:bg-blue-200">My Properties</a></li>
+                <li><a href="add-new-property.html" class="block px-4 py-2 rounded hover:bg-gray-200">Add New Property</a></li>
+                <li><a href="manage-tenants.html" class="block px-4 py-2 rounded hover:bg-gray-200">Manage Tenants</a></li>
+                <li><a href="lease-agreement.html" class="block px-4 py-2 rounded hover:bg-gray-200">Lease Agreements</a></li>
+                <li><a href="payments.html" class="block px-4 py-2 rounded hover:bg-gray-200">Payments</a></li>
+                <li><a href="support.html" class="block px-4 py-2 rounded hover:bg-gray-200">Support</a></li>
+            </ul>
+        </aside>
+
+        <main class="flex-1 p-8">
+
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-3xl font-semibold">My Properties</h2>
+
+                <a href="add-new-property.html" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md inline-block">
+                    + Add New Property
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" class="w-full h-44 object-cover" />
+
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold mb-1">Green Residency - Flat 101</h3>
+                        <p class="text-gray-600 mb-2">Location: Mumbai</p>
+
+                        <div class="flex justify-between items-center mt-4">
+                            <span class="text-green-600 font-semibold">Occupied</span>
+                            <a href="#" class="text-blue-600 font-semibold hover:underline">View</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1572120360610-d971b9d7767c" class="w-full h-44 object-cover" />
+
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold mb-1">Skyline Villa - No. 3</h3>
+                        <p class="text-gray-600 mb-2">Location: Pune</p>
+
+                        <div class="flex justify-between items-center mt-4">
+                            <span class="text-red-600 font-semibold">Vacant</span>
+                            <a href="#" class="text-blue-600 font-semibold hover:underline">View</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6" class="w-full h-44 object-cover" />
+
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold mb-1">Silver Apartments - 202</h3>
+                        <p class="text-gray-600 mb-2">Location: Bangalore</p>
+
+                        <div class="flex justify-between items-center mt-4">
+                            <span class="text-green-600 font-semibold">Occupied</span>
+                            <a href="#" class="text-blue-600 font-semibold hover:underline">View</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd1" class="w-full h-44 object-cover" />
+
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold mb-1">Ocean View Homes - B12</h3>
+                        <p class="text-gray-600 mb-2">Location: Goa</p>
+
+                        <div class="flex justify-between items-center mt-4">
+                            <span class="text-red-600 font-semibold">Vacant</span>
+                            <a href="#" class="text-blue-600 font-semibold hover:underline">View</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </main>
+    </div>
+
+</body>
+</html>

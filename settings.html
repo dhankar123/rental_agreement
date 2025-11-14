@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lease Connect | Settings</title>
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+    body{display:flex;height:100vh;background:#f9fafc;color:#333;}
+    .sidebar{width:250px;background:linear-gradient(180deg,#7fc8f8,#a0e7e5);padding:25px 20px;border-radius:0 25px 25px 0;}
+    .sidebar a{display:block;text-decoration:none;color:#003049;padding:12px;border-radius:8px;margin-bottom:5px;}
+    .sidebar a.active,.sidebar a:hover{background:#fff;color:#000;}
+    .main{flex:1;display:flex;flex-direction:column;}
+    .topbar{height:65px;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,0.1);display:flex;align-items:center;justify-content:space-between;padding:0 25px;}
+    .content{padding:30px;}
+    .settings-card{background:#fff;border-radius:15px;box-shadow:0 4px 8px rgba(0,0,0,0.08);padding:20px;margin-bottom:20px;}
+    input[type=text],input[type=password]{width:100%;padding:10px;border-radius:8px;border:1px solid #ccc;margin-top:8px;}
+    button{margin-top:10px;padding:10px 15px;border:none;border-radius:8px;background:#7fc8f8;color:#003049;font-weight:600;cursor:pointer;}
+  </style>
+</head>
+<body>
+
+  <aside class="sidebar">
+    <h2>Lease Connect</h2>
+    <a href="dashboard.html">🏠 Dashboard</a>
+    <a href="lease-records.html">📄 Lease Records</a>
+    <a href="tenants.html">👥 Tenants</a>
+    <a href="properties.html">🏢 Properties</a>
+    <a href="payments.html">💰 Payments</a>
+    <a href="reports.html">📈 Reports</a>
+    <a href="settings.html" class="active">⚙️ Settings</a>
+  </aside>
+
+  <div class="main">
+    <div class="topbar"><h1>Settings</h1></div>
+
+    <div class="content">
+      <div class="settings-card">
+        <h3>Update Profile</h3>
+        <input type="text" placeholder="Full Name" />
+        <input type="text" placeholder="Email Address" />
+        <button>Save Changes</button>
+      </div>
+
+      <div class="settings-card">
+        <h3>Change Password</h3>
+        <input type="password" placeholder="Current Password" />
+        <input type="password" placeholder="New Password" />
+        <input type="password" placeholder="Confirm New Password" />
+        <button>Update Password</button>
+      </div>
+
+      <div class="settings-card">
+        <h3>Notification Preferences</h3>
+        <label><input type="checkbox" checked /> Email Alerts</label><br/>
+        <label><input type="checkbox" /> SMS Notifications</label><br/>
+        <button>Save Preferences</button>
+      </div>
+    </div>
+
+    <footer style="text-align:center;padding:15px;background:#fff;border-top:1px solid #eee;">&copy; 2025 Lease Connect | All Rights Reserved</footer>
+  </div>
+</body>
+</html>
